@@ -74,14 +74,25 @@
 
       <!-- ✅ Contact form -->
       <section id="contact">
-        <h3>Contact Us</h3>
-        <form action="mailto:hello@protohive3d.com" method="POST" enctype="text/plain">
+       <h3>Contact Us</h3>
+        <form action="https://formspree.io/f/xkgzlkje" method="POST">
           <label for="name">Name:</label><br />
-          <input type="text" id="name" name="name" /><br />
+          <input type="text" id="name" name="name" required /><br />
+        
           <label for="email">Email:</label><br />
-          <input type="email" id="email" name="email" /><br />
+          <input type="email" id="email" name="email" required /><br />
+        
+          <label for="inquiry">Inquiry Type:</label><br />
+          <select id="inquiry" name="inquiry" required>
+            <option value="">Select one</option>
+            <option value="quote">Quote Request</option>
+            <option value="workshop">Workshop Inquiry</option>
+            <option value="general">General Question</option>
+          </select><br />
+        
           <label for="message">Message:</label><br />
-          <textarea id="message" name="message"></textarea><br />
+          <textarea id="message" name="message" required></textarea><br />
+        
           <input type="submit" value="Send" />
         </form>
       </section>
