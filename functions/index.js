@@ -1,8 +1,13 @@
 export async function onRequest() {
-  const html = await fetch("https://protohive3d.com/pages/index.html");
-  const response = new Response(await html.text(), html);
-  response.headers.set("X-Content-Type-Options", "nosniff");
-  response.headers.set("X-Frame-Options", "DENY");
-  response.headers.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains; preload");
-  return response;
+  const res = await fetch("https://protohive3d.com/pages/index.html");
+  const html = await res.text();
+
+  return new Response(html, {
+    headers: {
+      "Content-Type": "text/html",
+      "X-Content-Type-Options": "nosniff",
+      "X-Frame-Options": "DENY",
+      "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload"
+    }
+  });
 }
