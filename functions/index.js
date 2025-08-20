@@ -1,5 +1,5 @@
 export async function onRequest() {
-  const html = await fetch("https://protohive3d.com/home.html");
+  const html = await fetch("https://protohive3d.com/index.html");
   const response = new Response(await html.text(), html);
   response.headers.set("X-Content-Type-Options", "nosniff");
   response.headers.set("X-Frame-Options", "DENY");
