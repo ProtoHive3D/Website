@@ -107,6 +107,22 @@ form input[type="submit"]:hover {
   background-color: #005fa3;
 }
 
+/* Closer section */
+#closer {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+#closer h2 {
+  font-size: 2rem;
+  color: #444;
+}
+
+#closer p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
 /* Footer */
 footer {
   text-align: center;
