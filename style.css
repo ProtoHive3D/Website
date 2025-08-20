@@ -183,3 +183,62 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
+
+/* ✅ Form validation feedback */
+input:invalid,
+textarea:invalid,
+select:invalid {
+  border: 2px solid #e74c3c;
+  background-color: #fff0f0;
+}
+
+input:valid,
+textarea:valid,
+select:valid {
+  border: 2px solid #2ecc71;
+  background-color: #f0fff0;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #0078d4;
+  box-shadow: 0 0 5px rgba(0, 120, 212, 0.3);
+}
+
+/* ✅ Privacy page layout */
+.privacy-container {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.privacy-container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #0078d4;
+}
+
+.privacy-container p {
+  margin-bottom: 1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* ✅ GDPR consent checkbox */
+.consent-group {
+  margin-top: 1rem;
+}
+
+.consent-group label {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.consent-group input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
