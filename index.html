@@ -96,7 +96,27 @@
           <input type="submit" value="Send" />
         </form>
       </section>
-
+      <!-- ✅ JavaScript Validation (Place before </body>) -->
+      <script>
+      document.getElementById("contactForm").addEventListener("submit", function(e) {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const inquiry = document.getElementById("inquiry").value;
+        const message = document.getElementById("message").value.trim();
+      
+        if (!name || !email || !inquiry || !message) {
+          alert("Please fill out all required fields.");
+          e.preventDefault();
+          return;
+        }
+      
+        if (!email.includes("@") || !email.includes(".")) {
+          alert("Please enter a valid email address.");
+          e.preventDefault();
+        }
+      });
+      </script>
+      
       <!-- ✅ Brand closer line -->
       <section id="closer">
         <h2>ProtoHive3D <span class="tagline">— Where Makers Learn, Print, and Grow Together.</span></h2>
