@@ -1,0 +1,229 @@
+.header {
+  height: var(--header-height-desktop);
+  overflow: visible;
+  padding: 0 1.5rem;
+  border-bottom: 1px solid #e5e5e5;
+  background-color: var(--brand-accent);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* === Zones === */
+.leftZone {
+  display: flex;
+  align-items: center;
+}
+
+.middleZone {
+  display: flex;
+  align-items: center;
+}
+
+.rightZone {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* === Logo === */
+.logoLink {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+
+.logoLink:focus {
+  outline: 2px solid var(--brand-accent);
+  outline-offset: 2px;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  height: auto;
+  width: auto;
+  max-height: var(--header-height-desktop);
+  object-fit: contain;
+  transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+}
+
+.logoLink:hover .logo,
+.logoLink:active .logo {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+  box-shadow: 0 0 6px var(--brand-accent);
+}
+
+/* === Navigation Links === */
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navList a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #fff;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.navList a.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 1px;
+}
+
+.navList a:hover {
+  color: color-mix(in srgb, #fff 80%, black);
+}
+
+/* === Social Icons === */
+.platformIcons {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.platformIcons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.platformIcons a:hover {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+
+/* === Cart Icon === */
+.cartLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.cartIcon {
+  width: 28px;
+  height: 28px;
+  color: #fff;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: #e74c3c;
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+/* === Login Button === */
+.loginButton {
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.loginButton:hover {
+  background-color: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+/* === Hamburger Menu === */
+.menuButton {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+/* === Mobile adjustments === */
+@media (max-width: 900px) {
+  .header {
+    height: var(--header-height-mobile);
+    padding: 0 1rem;
+  }
+
+  .logo {
+    max-height: var(--header-height-mobile);
+  }
+
+  .navList {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    position: absolute;
+    top: var(--header-height-mobile);
+    right: 1rem;
+    background-color: var(--brand-accent);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition:
+      max-height 0.3s ease,
+      opacity 0.3s ease,
+      transform 0.3s ease,
+      padding 0.3s ease;
+    padding: 0 1.25rem;
+  }
+
+  .navList.open {
+    display: flex;
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
+    padding: 1rem 1.25rem;
+  }
+
+  .menuButton {
+    display: block;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
